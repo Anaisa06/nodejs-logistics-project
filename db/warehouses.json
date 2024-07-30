@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "name": "Med Sur",
+    "location": "medsur"
+  },
+  {
+    "id": 2,
+    "name": "Med north",
+    "location": "med north 32 - 43"
+  }
+]
