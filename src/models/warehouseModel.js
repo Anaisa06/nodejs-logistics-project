@@ -31,13 +31,14 @@ export const getOne = async (id) => {
     return warehouse;
 };
 
-export const create = async (name, location) => {
+export const create = async (name, location, vehicleId) => {
     const warehouses = await getAll();
    
     const newWarehouse = {
         id: warehouses.length +1,
         name,
-        location
+        location,
+        vehicleId
     };
 
     warehouses.push(newWarehouse);
@@ -45,7 +46,7 @@ export const create = async (name, location) => {
     return newWarehouse;
 };
 
-export const update = async (id, name, location) => {
+export const update = async (id, name, location, vehicleId) => {
     const warehouses = await getAll();
     const index = warehouses.findIndex((w) => w.id === id);
     
@@ -56,10 +57,23 @@ export const update = async (id, name, location) => {
     const updatedWarehouse = {
         id,
         name,
-        location
+        location,
+        vehicleId
     };
 
     warehouses[index] = updatedWarehouse;
     await writeFs(warehouses);
     return updatedWarehouse;
+};
+
+export const deleteOne = async (id) => {
+    const warehouses = await getAll();
+    const index = warehouses.findIndex((w) => w.id === id);
+
+    if (index == -1){
+        return { message: ` warehouse with id ${id} not found` };
+    };
+
+    warehouses.splice(index, 1);
+    await writeFs(warehouses);
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "item": "shoes",
+    "quantity": 2,
+    "warehouseId": 1,
+    "vehicleId": 1
+  },
+  {
+    "id": 2,
+    "item": "skirts",
+    "quantity": 3,
+    "warehouseId": 2,
+    "vehicleId": 1
+  }
+]
